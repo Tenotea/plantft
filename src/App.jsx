@@ -1,6 +1,7 @@
 import React from 'react';
 import { DNavigation } from './components/app/navigation/Navigation';
 import './styles/tailwind.css';
+import '../node_modules/@mdi/font/css/materialdesignicons.min.css';
 
 function App() {
   return (
