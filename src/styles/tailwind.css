@@ -3,5 +3,9 @@
 @import "tailwindcss/utilities";
 
 *{
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
+
+/* * button {
+  font-family: 'Lato', sans-serif;
+} */
