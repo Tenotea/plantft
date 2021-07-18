@@ -6,7 +6,7 @@ import { DIcon } from './DIcon'
 const DRoutes = [
   {id: 1, name: 'Home', route: '/'},
   {id: 3, name: 'Login', route: '/auth/login'},
-  {id: 4, name: 'Sign up', route: '/auth/sign-up'}
+  {id: 4, name: 'Sign up', route: '/auth/create-account'}
 ]
 
 export const DNavigation = () => {
