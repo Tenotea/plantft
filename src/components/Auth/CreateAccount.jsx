@@ -18,10 +18,11 @@ export const CreateAccount = () => {
 
   function handleSubmit () {
     setTriggerErrorCheck(true)
+    // Object wide yup validation
   }
 
   return (
-    <main className="py-16 xl:px-16 lg:px-6 mx-auto lg:mx-0 max-w-max lg:max-w-full">
+    <main className="lg:py-16 py-3 xl:px-16 lg:px-6 mx-auto lg:mx-0 max-w-max lg:max-w-full">
       <div className="py-3 px-8 hidden lg:block">
         <h1 className="text-3xl font-semibold text-app-zeus-purple">
           Create Account

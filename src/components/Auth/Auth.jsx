@@ -40,7 +40,7 @@ const Auth = () => {
         <div className="h-30 grid items-center gap-8 px-16 py-10 bg-app-zero-gravity lg:hidden" >
           <img src={DLogo} alt="site logo" className="h-8" />
           <div>
-            <h1 className="font-semibold text-white text-4xl">
+            <h1 className="font-semibold text-white text-3xl sm:text-4xl">
               Create Account
             </h1>
             <p className="text-white font-light text-sm mt-1">
