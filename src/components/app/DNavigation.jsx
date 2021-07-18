@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import DLogo from '../../assets/logo.svg'
 import { DIcon } from './DIcon'
 
 const DRoutes = [
-  {id: 1, name: 'Marketplace'},
-  {id: 2, name: 'Guide'},
-  {id: 3, name: 'Login'},
-  {id: 4, name: 'Sign up'}
+  {id: 1, name: 'Home', route: '/'},
+  {id: 3, name: 'Login', route: '/auth/login'},
+  {id: 4, name: 'Sign up', route: '/auth/sign-up'}
 ]
 
 export const DNavigation = () => {
@@ -26,15 +26,20 @@ export const DNavigation = () => {
           <ul className="text-center md:flex items-center justify-start gap-8 mt-10 md:mt-0">
             {
               DRoutes.map(el => (
-                <li key={el.id} className="cursor-pointer text-white text-opacity-70 bg-transparent hover:bg-white md:hover:bg-opacity-0 hover:bg-opacity-5 font-medium text-lg uppercase md:normal-case md:font-normal tracking-wider py-5 md:py-0 hover:text-opacity-100 transition-opacity md:text-sm">
-                  { el.name }
-                </li> 
+                <Link key={el.id} to={el.route}>
+                  <li className="cursor-pointer text-white text-opacity-70 bg-transparent hover:bg-white md:hover:bg-opacity-0 hover:bg-opacity-5 font-medium text-lg uppercase md:normal-case md:font-normal tracking-wider py-5 md:py-0 hover:text-opacity-100 transition-opacity md:text-sm" onClick={() => setIsSideMenuOpen(false)}>
+                    { el.name }
+                  </li> 
+                </Link>
               ))
             }
           </ul>
-          <div className="mx-auto mt-16  md:m-0 py-3 md:py-2 px-16 md:px-8 bg-pink-700 bg-gradient-to-r from-pink-700 to-app-zeus-purple text-white rounded uppercase max-w-max text-sm font-medium hover:shadow-lg cursor-pointer">
-            start now
-          </div>
+          <Link to="/auth" className="max-w-max block mx-auto md:m-0" onClick={() => setIsSideMenuOpen(false)}>
+            <div className="mx-auto mt-16 flex items-center md:m-0 py-3 md:py-2 px-16 md:px-8 bg-gradient-to-r from-pink-700 to-app-zeus-purple text-white rounded uppercase md:min-w-max text-sm font-medium hover:shadow-lg cursor-pointer">
+              start now
+              <DIcon name="rocket" className="block ml-2 transform rotate-12 origin-bottom-right text-lg" />
+            </div>
+          </Link>
         </div>
         <DIcon name="menu" className="text-2xl text-white md:hidden block cursor-pointer" onClick={() => setIsSideMenuOpen(true)} />
       </div>
