@@ -33,7 +33,7 @@ export const CreateAccount = () => {
         <DField
           label="User ID"
           icon="card-account-details"
-          name="username"
+          name="userId"
           type="text"
           value={formData.userId}
           placeholder="e.g username43"
