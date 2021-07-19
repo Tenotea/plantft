@@ -5,6 +5,7 @@ import authBackgroundArt from '../../assets/auth-bg.png'
 import DLogo from '../../assets/logo.svg'
 import { ConnectWallet } from './ConnectWallet'
 import { CreateAccount } from './CreateAccount'
+import Login from './Login'
 
 export const fieldSchemas = {
   userId: yup.string().required(),
@@ -37,13 +38,15 @@ const authOptions = [
 const AuthHeader = ({ authOption, className }) => {
   return (
     <div className={`h-30 grid items-center gap-8 px-16 py-10 bg-app-zero-gravity ${className}`} >
-      <img src={DLogo} alt="site logo" className="h-8" />
+      <Link to="/">
+        <img src={DLogo} alt="site logo" className="h-8" />
+      </Link>
       <div>
         <h1 className="font-semibold text-white text-3xl sm:text-4xl">
           { authOption.name }
         </h1>
-        { authOption.path && (<p className="text-white font-light text-sm mt-1">
-          {authOption.prelinkText} <Link to={authOption.path}> <span className="text-blue-600">
+        { authOption.path && (<p className="text-white text-opacity-70 font-light text-sm mt-1">
+          {authOption.prelinkText} <Link to={authOption.path}> <span className="text-blue-500 font-medium">
             { authOption.alternativeName }
           </span> </Link>
         </p>)}
@@ -67,14 +70,19 @@ const Auth = () => {
       </div>
       <section className="w-full h-screen overflow-auto">
         <AuthHeader authOption={currentAuthOption} className="lg:hidden" />
-        <Switch>
-          <Route path="/auth/create-account">
-            <CreateAccount />
-          </Route>
-          <Route path="/auth/connect-wallet">
-            <ConnectWallet />
-          </Route>
-        </Switch>
+        <div className="py-10">
+          <Switch>
+            <Route path="/auth/create-account">
+              <CreateAccount />
+            </Route>
+            <Route path="/auth/connect-wallet">
+              <ConnectWallet />
+            </Route>
+            <Route path="/auth/login">
+              <Login />
+            </Route>
+          </Switch>
+        </div>
       </section>
     </main>
   )
