@@ -3,6 +3,7 @@ import { Link, Route, Switch, useLocation } from 'react-router-dom'
 import * as yup from 'yup'
 import authBackgroundArt from '../../assets/auth-bg.png'
 import DLogo from '../../assets/logo.svg'
+import { ConnectWallet } from './ConnectWallet'
 import { CreateAccount } from './CreateAccount'
 
 export const fieldSchemas = {
@@ -27,6 +28,9 @@ const authOptions = [
     path: '/auth/create-account',
     prelinkText: 'Need an account?',
     alternativeName: 'Create Account'
+  },{
+    id: 3,
+    name: 'Connect your wallet',
   }
 ]
 
@@ -38,11 +42,11 @@ const AuthHeader = ({ authOption, className }) => {
         <h1 className="font-semibold text-white text-3xl sm:text-4xl">
           { authOption.name }
         </h1>
-        <p className="text-white font-light text-sm mt-1">
+        { authOption.path && (<p className="text-white font-light text-sm mt-1">
           {authOption.prelinkText} <Link to={authOption.path}> <span className="text-blue-600">
             { authOption.alternativeName }
           </span> </Link>
-        </p>
+        </p>)}
       </div>
     </div>
   )
@@ -50,7 +54,7 @@ const AuthHeader = ({ authOption, className }) => {
 
 const Auth = () => {
   const location = useLocation()
-  const locationIndex = location.pathname.includes('login') ? 1 : 0
+  const locationIndex = location.pathname.includes('login') ? 1 : location.pathname.includes('connect-wallet') ? 2 : 0
   const currentAuthOption = authOptions[locationIndex]
 
   return (
@@ -66,6 +70,9 @@ const Auth = () => {
         <Switch>
           <Route path="/auth/create-account">
             <CreateAccount />
+          </Route>
+          <Route path="/auth/connect-wallet">
+            <ConnectWallet />
           </Route>
         </Switch>
       </section>

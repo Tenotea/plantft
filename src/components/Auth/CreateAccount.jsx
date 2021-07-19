@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { DField } from '../app/DField'
 import { fieldSchemas } from './Auth'
+import AuthFormHeader from './AuthFormHeader'
 
 export const CreateAccount = () => {
   const [ formData, setFormData ] = useState({
@@ -23,15 +24,11 @@ export const CreateAccount = () => {
 
   return (
     <main className="lg:py-16 py-3 xl:px-16 lg:px-6 mx-auto lg:mx-0 max-w-max lg:max-w-full">
-      <div className="py-3 px-8 hidden lg:block">
-        <h1 className="text-3xl font-semibold text-app-zeus-purple">
-          Create Account
-        </h1>
-        <p className="text-gray-600 text-sm mt-1.5">
-          Fill the form below to continue. All fields are required
-        </p>
-      </div>
-
+      <AuthFormHeader 
+        title="Create Account"
+        caption="Fill the form below to continue. All fields are required"
+      />
+      
       <form className="mt-6 px-5 sm:px-8 max-w-2xl" onSubmit={(e) => e.preventDefault()}>
         <DField
           label="User ID"
